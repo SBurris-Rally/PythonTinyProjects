@@ -10,6 +10,46 @@ VOWEL_WORDS = ["octopus", "iceberg"]
 NONVOWEL_WORDS = ["norwhal", "dolphin", "mermaid", "brigantine"]
 
 ### ---------------------------------------------------------------------------
+###     get_article
+### ---------------------------------------------------------------------------
+
+def test__get_article__noneEntered():
+    input = None
+    expected = "a"
+    output = get_article(input)
+    assert expected == output
+
+def test__get_article__emptyStringEntered():
+    input = ""
+    expected = "a"
+    output = get_article(input)
+    assert expected == output
+
+def test__get_article__lowercase_vowel():
+    for word in VOWEL_WORDS:
+        expected = "an"
+        output = get_article(word.lower())
+        assert expected == output
+
+def test__get_article__uppercase_vowel():
+    for word in VOWEL_WORDS:
+        expected = "An"
+        output = get_article(word.title())
+        assert expected == output
+
+def test__get_article__lowercase_nonvowel():
+    for word in NONVOWEL_WORDS:
+        expected = "a"
+        output = get_article(word.lower())
+        assert expected == output
+
+def test__get_article__uppercase_nonvowel():
+    for word in NONVOWEL_WORDS:
+        expected = "A"
+        output = get_article(word.title())
+        assert expected == output
+
+### ---------------------------------------------------------------------------
 ###     generate_alarm_phrase
 ### ---------------------------------------------------------------------------
 
@@ -74,12 +114,9 @@ def test__is_vowel__nonVowelLetters():
         output = is_vowel(letter)
         assert expected == output
 
-
-
 ### ---------------------------------------------------------------------------
 ###     Copied from example
 ### ---------------------------------------------------------------------------
-
 
 prg = './crowsnest.py'
 consonant_words = [
@@ -125,7 +162,7 @@ def test_consonant_upper():
 
     for word in consonant_words:
         out = getoutput(f'{prg} {word.title()}')
-        assert out.strip() == template.format('a', word.title())
+        assert out.strip() == template.format('A', word.title())
 
 
 # --------------------------------------------------
@@ -143,4 +180,4 @@ def test_vowel_upper():
 
     for word in vowel_words:
         out = getoutput(f'{prg} {word.upper()}')
-        assert out.strip() == template.format('an', word.upper())
+        assert out.strip() == template.format('An', word.upper())

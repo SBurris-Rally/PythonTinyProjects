@@ -17,13 +17,30 @@ def generate_alarm_phrase(sightedObject):
     if len(sightedObject) == 0:
         return ""
 
-    startsWithVowel = is_vowel(sightedObject[0])
-    if startsWithVowel:
-        grammer = "an"
-    else:
-        grammer = "a"
-    phrase = PHRASE.format(grammer, sightedObject)
+    article = get_article(sightedObject)
+
+    phrase = PHRASE.format(article, sightedObject)
     return phrase
+
+def get_article(sightedObject):
+    if sightedObject is None:
+        return "a"
+    
+    if sightedObject == "":
+        return "a"
+
+    firstLetter = sightedObject[0]
+    isVowel = is_vowel(firstLetter)
+    isCapital = firstLetter.isupper()
+
+    if isVowel == True:
+        if isCapital == True:
+            return "An"
+        return "an"
+    else:
+        if isCapital == True:
+            return "A"
+        return "a"
 
 def is_vowel(letter):
     if letter == None:
