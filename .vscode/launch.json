@@ -11,6 +11,14 @@
             "program": "Chapter2/crowsnest.py",
             "console": "integratedTerminal",
             "args": ["Iceberg"]
+        },
+        {
+            "name": "Python: Chp 2",
+            "type": "python",
+            "request": "launch",
+            "program": "Chapter2/crowsnest.py",
+            "console": "integratedTerminal",
+            "args": ["Iceberg"]
         }
     ]
 }

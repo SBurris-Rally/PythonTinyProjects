@@ -31,6 +31,12 @@ def test__get_article__lowercase_vowel():
         output = get_article(word.lower())
         assert expected == output
 
+def test__get_article__lowercase_vowel_with_capital_in_middle():
+    input = "iPod"
+    expected = "an"
+    output = get_article(input)
+    assert expected == output
+
 def test__get_article__uppercase_vowel():
     for word in VOWEL_WORDS:
         expected = "An"
