@@ -23,7 +23,13 @@
       "console": "integratedTerminal",
       "justMyCode": true,
       "args": [
-        "chips"
+        "-s",
+        "-n",
+        "-d",
+        ":",
+        "chips",
+        "apples",
+        "ice cream"
       ]
     }
   ]

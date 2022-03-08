@@ -25,7 +25,7 @@ def generate_alarm_phrase(sightedObject):
 def get_article(sightedObject):
     if sightedObject is None:
         return "a"
-    
+
     if sightedObject == "":
         return "a"
 
@@ -63,7 +63,6 @@ def createArgsParser():
     parser = argparse.ArgumentParser(description="Alert on Sighting!")
     parser.add_argument("object", help="What was sighted?")
     shipSide = parser.add_mutually_exclusive_group()
-    shipSide.add_argument("--starboard", default)
     return parser
 
 if __name__ == '__main__':
