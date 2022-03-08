@@ -21,16 +21,22 @@ from picnic import *
     (["apple", "banana"], True, ",", "apple and banana"),
     (["apple", "banana", "cherry"], True, ",", "apple, banana and cherry"),
     (["apple", "banana", "cherry", "donuts"], True, ",", "apple, banana, cherry and donuts"),
-    # Change Delimitor
+    # Change Delimiter
     (["apple"], False, "|", "apple"),
-    (["apple", "banana"], False, "|", "apple and banana"),
-    (["apple", "banana", "cherry"], False, "|", "apple| banana| and cherry"),
-    (["apple", "banana", "cherry", "donuts"], False, "|", "apple| banana| cherry| and donuts"),
+    (["apple", "banana"], False, "|", "apple|banana"),
+    (["apple", "banana", "cherry"], False, "|", "apple|banana|cherry"),
+    (["apple", "banana", "cherry", "donuts"], False, "|", "apple|banana|cherry|donuts"),
     # Delimiter Not Defined
     (["apple", "banana", "cherry"], False, None, "apple, banana, and cherry"),
     (["apple", "banana", "cherry"], False, "", "apple, banana, and cherry"),
     (["apple", "banana", "cherry"], False, " ", "apple, banana, and cherry"),
     (["apple", "banana", "cherry"], False, "  ", "apple, banana, and cherry"),
+    # Multi-character Delimiter
+    (["apple", "banana", "cherry"], False, "|||", "apple|banana|cherry"),
+    # Non-boolean Oxford Commas
+    (["apple", "banana", "cherry"], None, ",", "apple, banana, and cherry"),
+    (["apple", "banana", "cherry"], 0, ",", "apple, banana, and cherry"),
+    (["apple", "banana", "cherry"], "foobar", ",", "apple, banana, and cherry"),
 ])
 def test_displayItems(items, useOxfordComma, delimiter, expected):
     output = displayItems(items, useOxfordComma, delimiter)
