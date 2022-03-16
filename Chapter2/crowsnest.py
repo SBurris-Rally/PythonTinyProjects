@@ -62,7 +62,6 @@ def getInput():
 def createArgsParser():
     parser = argparse.ArgumentParser(description="Alert on Sighting!")
     parser.add_argument("object", help="What was sighted?")
-    shipSide = parser.add_mutually_exclusive_group()
     return parser
 
 if __name__ == '__main__':
