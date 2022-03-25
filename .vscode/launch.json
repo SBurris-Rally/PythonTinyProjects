@@ -40,6 +40,8 @@
       "console": "integratedTerminal",
       "justMyCode": true,
       "args": [
+        "-ee",
+        // "output.txt",
         "Hello World"
       ]
     }
