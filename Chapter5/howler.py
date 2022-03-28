@@ -2,12 +2,32 @@
 
 import argparse
 import os
+from functools import partial
+
+LARGE_FILE_CUTOFF = 10485760  # 10 MB
+READ_SIZE = 1000000 # 1 MB at a time
 
 def main():
     input = get_input()
-    message = get_message(input["message"])
-    message = process_message(message, input["is_lowercase"])
-    output_message(message, input["output_filename"])
+
+    message = input["message"]
+    is_lowercase = input["is_lowercase"]
+    output_filename = input["output_filename"]
+
+    is_large = is_large_file(message)
+    if is_large == False:
+        message = get_message(message)
+        message = process_message(message, is_lowercase)
+        output_message(message, output_filename)
+    else:
+        process_large_file(message, is_lowercase, output_filename)
+
+def process_large_file(filename, is_lowercase, output_filename):
+    index = 0
+    with open(filename) as reader:
+        for chunk in iter(partial(reader.read, READ_SIZE), b''):
+            message = process_message(chunk, is_lowercase)
+            print(message)
 
 def output_message(message, output_filename):
     if output_filename == "":
@@ -21,8 +41,22 @@ def process_message(input, is_lowercase):
         return input.casefold()
     return input.upper()
 
-def get_message(input):
+def is_large_file(input):
+    is_file = is_message_filename(input)
+    if is_file == False:
+        return False
+
+    file_size = os.path.getsize(input)
+    if file_size > LARGE_FILE_CUTOFF:
+        return True
+    return False
+
+def is_message_filename(input):
     is_file = os.path.isfile(input)
+    return is_file
+
+def get_message(input):
+    is_file = is_message_filename(input)
     if is_file == True:
         message = get_file_contents(input)
         return message

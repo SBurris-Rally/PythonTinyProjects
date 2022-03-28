@@ -40,9 +40,10 @@
       "console": "integratedTerminal",
       "justMyCode": true,
       "args": [
-        "-ee",
-        // "output.txt",
-        "Hello World"
+        //"-ee",
+        //"-o", "output.txt",
+        //"Hello World"
+        "~/Documents/temp/largefile.txt"
       ]
     }
   ]
