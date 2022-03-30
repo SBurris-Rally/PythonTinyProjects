@@ -31,6 +31,20 @@
         "apples",
         "ice cream"
       ]
+    },
+    {
+      "name": "Chp5",
+      "type": "python",
+      "request": "launch",
+      "program": "Chapter5/howler.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+        //"-ee",
+        //"-o", "output.txt",
+        //"Hello World"
+        "~/Documents/temp/largefile.txt"
+      ]
     }
   ]
 }
