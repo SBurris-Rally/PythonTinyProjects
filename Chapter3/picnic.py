@@ -11,6 +11,13 @@ def main():
     finalStatement = finalizeSentence(display_items)
     print(finalStatement)
 
+def finalizeSentence(items):
+    return PICNIC_TEMPLATE.format(items)
+
+def displayItems(items, noOxfordComma, delimiter):
+    if delimiter is None or delimiter.strip() == "":
+        delimiter = ","
+
 def displayItems(items, noOxfordComma, delimiter):
     if type(noOxfordComma) != bool:
         noOxfordComma = False
@@ -28,7 +35,7 @@ def displayItems(items, noOxfordComma, delimiter):
 
     if delimiter != ",":
         return delimiter.join(items)
-
+      
     if len(items) == 1:
         return items[0]
     elif len(items) == 2:
