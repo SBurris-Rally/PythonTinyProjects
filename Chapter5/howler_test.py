@@ -7,16 +7,16 @@ import pytest
 from howler import *
 
 # ### ---------------------------------------------------------------------------
-# ###     process_message
+# ###     transform_message
 # ### ---------------------------------------------------------------------------
 
-# @pytest.mark.parametrize("input, expected",[
-#     (None, ""),
-#     ("", ""),
-#     ("Hello World", "Hello World"),
-#     ("1", "9"),
-#     ("Call 1-800-329-8044 today!", "Call 9-255-781-2566 today!")
-# ])
-# def test__process_message__normal(input, expected):
-#     output = process_message(input)
-#     assert expected == output
+@pytest.mark.parametrize("input, is_lowercase, expected",[
+    ("Hello World", False, "HELLO WORLD"),
+    ("Hello World", True, "hello world"),
+    ("Hello World!!!", False, "HELLO WORLD!!!"),
+    ("Hello World!!!", True, "hello world!!!"),
+])
+
+def test__transform_message__uppercase(input, is_lowercase, expected):
+    output = transform_message(input, is_lowercase)
+    assert expected == output

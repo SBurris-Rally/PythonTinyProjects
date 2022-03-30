@@ -42,8 +42,8 @@
       "args": [
         //"-ee",
         //"-o", "output.txt",
-        //"Hello World"
-        "~/Documents/temp/largefile.txt"
+        "Hello World"
+        //"~/Documents/temp/largefile.txt"
       ]
     }
   ]
