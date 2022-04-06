@@ -90,7 +90,7 @@ def test__generate_alarm_phrase__nonVowelWords():
 VOWEL_LETTER_INPUTS = ["a", "e", "i", "o", "u"]
 NONVOWEL_LETTER_INPUTS = ["b", "m", "z", "1", "$"]
 
-def test__is_vowelis_vowel__noneEntered():
+def test__is_vowel_vowel__noneEntered():
     input = None
     expected = False
     output = is_vowel(input)
@@ -103,7 +103,7 @@ def test__is_vowel__noLetter():
     assert expected == output
 
 def test__is_vowel__moreThanOneLetter():
-    input = "abc"
+    input = "aaa"
     expected = False
     output = is_vowel(input)
     assert expected == output
@@ -120,70 +120,70 @@ def test__is_vowel__nonVowelLetters():
         output = is_vowel(letter)
         assert expected == output
 
-### ---------------------------------------------------------------------------
-###     Copied from example
-### ---------------------------------------------------------------------------
+# ### ---------------------------------------------------------------------------
+# ###     Copied from example
+# ### ---------------------------------------------------------------------------
 
-prg = './Chapter2/crowsnest.py'
-consonant_words = [
-    'brigantine', 'clipper', 'dreadnought', 'frigate', 'galleon', 'haddock',
-    'junk', 'ketch', 'longboat', 'mullet', 'narwhal', 'porpoise', 'quay',
-    'regatta', 'submarine', 'tanker', 'vessel', 'whale', 'xebec', 'yatch',
-    'zebrafish'
-]
-vowel_words = ['aviso', 'eel', 'iceberg', 'octopus', 'upbound']
-template = 'Ahoy, Captain, {} {} off the larboard bow!'
-
-
-# --------------------------------------------------
-def test_exists():
-    """exists"""
-
-    assert os.path.isfile(prg)
+# prg = './Chapter2/crowsnest.py'
+# consonant_words = [
+#     'brigantine', 'clipper', 'dreadnought', 'frigate', 'galleon', 'haddock',
+#     'junk', 'ketch', 'longboat', 'mullet', 'narwhal', 'porpoise', 'quay',
+#     'regatta', 'submarine', 'tanker', 'vessel', 'whale', 'xebec', 'yatch',
+#     'zebrafish'
+# ]
+# vowel_words = ['aviso', 'eel', 'iceberg', 'octopus', 'upbound']
+# template = 'Ahoy, Captain, {} {} off the larboard bow!'
 
 
-# --------------------------------------------------
-def test_usage():
-    """usage"""
+# # --------------------------------------------------
+# def test_exists():
+#     """exists"""
 
-    for flag in ['-h', '--help']:
-        rv, out = getstatusoutput(f'{prg} {flag}')
-        assert rv == 0
-        print(out)
-        assert out.lower().startswith('usage')
+#     assert os.path.isfile(prg)
 
 
-# --------------------------------------------------
-def test_consonant():
-    """brigantine -> a brigantine"""
+# # --------------------------------------------------
+# def test_usage():
+#     """usage"""
 
-    for word in consonant_words:
-        out = getoutput(f'{prg} {word}')
-        assert out.strip() == template.format('a', word)
-
-
-# --------------------------------------------------
-def test_consonant_upper():
-    """brigantine -> a Brigatine"""
-
-    for word in consonant_words:
-        out = getoutput(f'{prg} {word.title()}')
-        assert out.strip() == template.format('A', word.title())
+#     for flag in ['-h', '--help']:
+#         rv, out = getstatusoutput(f'{prg} {flag}')
+#         assert rv == 0
+#         print(out)
+#         assert out.lower().startswith('usage')
 
 
-# --------------------------------------------------
-def test_vowel():
-    """octopus -> an octopus"""
+# # --------------------------------------------------
+# def test_consonant():
+#     """brigantine -> a brigantine"""
 
-    for word in vowel_words:
-        out = getoutput(f'{prg} {word}')
-        assert out.strip() == template.format('an', word)
+#     for word in consonant_words:
+#         out = getoutput(f'{prg} {word}')
+#         assert out.strip() == template.format('a', word)
 
 
-# --------------------------------------------------
-def test_vowel_upper():
-    """octopus -> an Octopus"""
+# # --------------------------------------------------
+# def test_consonant_upper():
+#     """brigantine -> a Brigatine"""
 
-    for word in vowel_words:
-        out = getoutput(f'{prg} {word.upper()}')
-        assert out.strip() == template.format('An', word.upper())
+#     for word in consonant_words:
+#         out = getoutput(f'{prg} {word.title()}')
+#         assert out.strip() == template.format('A', word.title())
+
+
+# # --------------------------------------------------
+# def test_vowel():
+#     """octopus -> an octopus"""
+
+#     for word in vowel_words:
+#         out = getoutput(f'{prg} {word}')
+#         assert out.strip() == template.format('an', word)
+
+
+# # --------------------------------------------------
+# def test_vowel_upper():
+#     """octopus -> an Octopus"""
+
+#     for word in vowel_words:
+#         out = getoutput(f'{prg} {word.upper()}')
+#         assert out.strip() == template.format('An', word.upper())

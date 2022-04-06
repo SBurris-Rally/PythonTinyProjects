@@ -48,7 +48,7 @@ def is_vowel(letter):
 
     if len(letter) != 1:
         return False
-
+    
     if letter.lower() in VOWEL_LETTERS:
         return True
 
