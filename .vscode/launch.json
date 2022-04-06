@@ -45,6 +45,23 @@
         "Hello World"
         //"~/Documents/temp/largefile.txt"
       ]
+    },
+    {
+      "name": "Chp6",
+      "type": "python",
+      "request": "launch",
+      "program": "Chapter6/wc.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+        "--lines",
+        "--words",
+        "--characters",
+        "Chapter6/data/blank_line.txt",
+        "Chapter6/data/double_space.txt",
+        "Chapter6/data/empty.txt",
+        "Chapter6/data/fox.txt"
+      ]
     }
   ]
 }
