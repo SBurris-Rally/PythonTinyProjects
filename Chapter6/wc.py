@@ -7,8 +7,6 @@ from functools import partial
 
 READ_SIZE = 1000000  # 1 MB at a time
 
-# lines / words / counts
-
 
 def main():
     files, display_options = get_input()
@@ -36,10 +34,6 @@ def format_results(results, display_options):
 
 def format_single_result(result, display_options):
     pattern_fragment = "{:8} "
-
-    # self.show_line_count = True
-    # self.show_word_count = True
-    # self.show_byte_count = True
 
     output = ""
     if display_options.show_line_count == True:
