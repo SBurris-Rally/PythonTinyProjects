@@ -62,6 +62,17 @@
         "Chapter6/data/empty.txt",
         "Chapter6/data/fox.txt"
       ]
+    },
+    {
+      "name": "Chp7",
+      "type": "python",
+      "request": "launch",
+      "program": "Chapter7/gashlycrumb.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+        "A"
+      ]
     }
   ]
 }

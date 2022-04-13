@@ -211,6 +211,14 @@ def test__process_file__two_words_double_space_split_chunk_in_space():
     helper_are_equal(expected, output)
 
 
+def test__process_file__words_split_across_multiple_chunks():
+    filename = "Chapter6/data/double_space.txt"
+    with open(filename, "r") as input_file:
+        expected = helper_create_file_count(input_file.name, 1, 2, 13)
+        output = process_file(input_file, 1)
+    helper_are_equal(expected, output)
+
+
 # ### ---------------------------------------------------------------------------
 # ###     Test Helper Functions
 # ### ---------------------------------------------------------------------------

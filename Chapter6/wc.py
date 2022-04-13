@@ -72,6 +72,7 @@ def process_file(file_handle, read_size=READ_SIZE):
         results.lines += chunk.count("\n")
         chunk = re.sub("[ ]+", " ", chunk)
         results.words += chunk.count(" ")
+        
         is_beginning_space = chunk[0] == " "
 
         # If chunk is split on space, don't double count it
